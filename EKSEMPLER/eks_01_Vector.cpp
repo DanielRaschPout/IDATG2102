@@ -2,7 +2,7 @@
  *   Programeksempel nr 1 - Vector (selvlaget enkel klasse).
  *
  *   Eksemplet viser en selvlaget implementasjon av container-klassen Vector.
- *   Det er laget kode for følgende funksjoner:
+ *   Det er laget kode for folgende funksjoner:
  *
  *     -  Vector(const int lengde = 200)
  *     -  ~Vector
@@ -21,7 +21,7 @@
  *     -  void  set(const int pos, const T value)    //  Dvs: vec[pos] = value
  *     -  int   size()
  *
- *   NB: For å formodentlig øke leseligheten og oversikten er medlems-
+ *   NB: For ï¿½ formodentlig ï¿½ke leseligheten og oversikten er medlems-
  *       funksjonene bevisst IKKE kommentert etter Doxygen-standarden.
  *
  *   @file     EKS_01_Vector.CPP
@@ -38,14 +38,14 @@ using namespace std;
  *  Container-klassen Vector, som er en selvlaget versjon av STLs <vector>.
  *
  *  Inneholder en array av typen 'T', og to int'er som angir total
- *  kapasitet/lengde (capacity) og det nåværende antallet (size).
+ *  kapasitet/lengde (capacity) og det nï¿½vï¿½rende antallet (size).
  */
 template <typename T>                //  'template'!  'T': fleksibel datatype!
 class Vector {                       //  (finnes ikke direkte i Java!
                                      //   "Generics" er noe litt lignende.)
   private:
       T*  data;                      //  PEKER til array av typen 'T'.
-      int kapasitet, antall;         //  Max.lengde og nåværende antall.
+      int kapasitet, antall;         //  Max.lengde og nï¿½vï¿½rende antall.
 
   public:                      //  Initierer medlemmer vha. default parameter:
       Vector(const int lengde = 200)  {  data = new T[lengde];
@@ -59,7 +59,7 @@ class Vector {                       //  (finnes ikke direkte i Java!
 
 
       void clear()  {                //  Nullstiller arrayens bruk:
-//          for (int i = 0; i < antall; i++)  data[i] = 0;  //  Unødvendig?!!!
+//          for (int i = 0; i < antall; i++)  data[i] = 0;  //  Unï¿½dvendig?!!!
           antall = 0;
       }
 
@@ -75,21 +75,21 @@ class Vector {                       //  (finnes ikke direkte i Java!
 
                                          //  Tilsvarer:   .... = vec[pos].
       T get(const int pos) const {       //  Henter (om mulig) element nr.pos:
-          if (pos >= 0  &&  pos < antall)  //  Innenfor bruksområde:
+          if (pos >= 0  &&  pos < antall)  //  Innenfor bruksomrï¿½de:
               return data[pos];            //  Returnerer aktuell verdi.
           else
               cout << "\nIndex out of bounds .....\n\n";   //  Egen melding ??
           return T();
       }
 
-                                //  Smetter inn (om mulig) 't' på plass 'pos':
+                                //  Smetter inn (om mulig) 't' pï¿½ plass 'pos':
       bool insert(const int pos, const T t) {
-          if (antall < kapasitet)  {        //  OPPGAVE: øke arrayens lengde.
+          if (antall < kapasitet)  {        //  OPPGAVE: ï¿½ke arrayens lengde.
              if (pos >= 0  &&  pos <= antall) {       //  Lovlig indeks:
                 for (int i = antall;  i > pos;  i--)  //  ALLE etter flyttes
                     data[i] = data[i-1];              //    opp ETT hakk.
                 data[pos] = t;                        //  Ny smettes inn.
-                antall++;                             //  Antall økes.
+                antall++;                             //  Antall ï¿½kes.
                 return true;                          //  Innsmetting lyktes.
              }  else
                  cout << "\nIndex out of bounds .....\n\n"; // Egen melding ??
@@ -101,7 +101,7 @@ class Vector {                       //  (finnes ikke direkte i Java!
 
       T pop_back() {                      //  Fjerner (om mulig) bakerste:
           if (!empty()) {                 //  Ikke tomt:
-              T siste = data[antall-1];   //  Tar vare på bakerste.
+              T siste = data[antall-1];   //  Tar vare pï¿½ bakerste.
               antall--;                   //  Antallet reduseres med -1.
               return siste;               //  Returnerer bakerste/siste.
           }  else
@@ -112,8 +112,8 @@ class Vector {                       //  (finnes ikke direkte i Java!
 
       T pop_front() {                     //  Fjerner (om mulig) forreste:
           if (!empty()) {                 //  Ikke tomt:
-              T forste = data[0];         //  Tar vare på forreste:
-              remove(0);                  //  Fjerner den første.
+              T forste = data[0];         //  Tar vare pï¿½ forreste:
+              remove(0);                  //  Fjerner den fï¿½rste.
               return forste;              //  Returnerer den unnalagrede.
           } else
               cout << "\nEmpty Vector - impossible to pop!\n\n";
@@ -133,7 +133,7 @@ class Vector {                       //  (finnes ikke direkte i Java!
 
       bool remove(const int pos) {    //  Fjerner (om mulig) element nr.'pos':
           if (pos >= 0 && pos < antall) {             //  Lovlig indeks:
-              for (int i = pos;  i < antall-1;  i++)  //  Flytter alle ETTERPÅ
+              for (int i = pos;  i < antall-1;  i++)  //  Flytter alle ETTERPï¿½
                   data[i] = data[i + 1];              //    ned ETT hakk.
               antall--;                             //  Totalantallet minskes.
               return true;
@@ -145,7 +145,7 @@ class Vector {                       //  (finnes ikke direkte i Java!
       }
 
 
-      void resize(const int nyLengde) {   //  Øker (om mulig) arrayens lengde.
+      void resize(const int nyLengde) {   //  ï¿½ker (om mulig) arrayens lengde.
           //  OPPGAVE:  Lage innmaten .....
       }
 
@@ -158,7 +158,7 @@ class Vector {                       //  (finnes ikke direkte i Java!
       }
 
 
-      int  size() const  {  return antall;  }   // Antall nåværende elementer.
+      int  size() const  {  return antall;  }   // Antall nï¿½vï¿½rende elementer.
 };
 
 
@@ -198,7 +198,7 @@ int main()  {
     sVec.pop_back();  sVec.pop_front();
     sVec.display();
 
-    cout << "\n\nPrøver enda 2x 'pop' til:\n";
+    cout << "\n\nPrï¿½ver enda 2x 'pop' til:\n";
     sVec.pop_back();  sVec.pop_front();
     sVec.display();
 
