@@ -14,8 +14,6 @@
 #include <iostream>
 using namespace std;
 
-Node* gRoot = nullptr;          ///<  Peker til treet rot.
-
 /**
  *  OPPGAVE A: Skriver ut ALLE noder med ID i intervallet 'min'-'max'.
  *
