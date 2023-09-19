@@ -45,6 +45,7 @@ void skrivVenstreBladnode(const Node* node) {
 
     if (!node) return;  //  Tomt tre.
 
+    // Sjekker om noden til venstre eksisterer, og om den har barn
     if (node->left != nullptr && !node->left->left && !node->left->right)
         cout << node->left->ID << " ";
     
